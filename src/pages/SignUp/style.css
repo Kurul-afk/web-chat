@@ -1,0 +1,19 @@
+.sign-up {
+  background-color: #181818;
+}
+.sign-up__container {
+  width: 90%;
+  margin: 0 auto;
+}
+.sign-up__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+.sign-up__img {
+  max-width: 9rem;
+}
+.sign-up__title {
+  color: #8758ff;
+}
