@@ -2,6 +2,7 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import "./style.css";
 import logo from "../../img/Logo-purple.svg";
+import googleIcom from "../../img/google-icon.svg";
 import { TextField } from "@mui/material";
 
 const SignUp = () => {
@@ -13,8 +14,12 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = () => {
-    console.log("Submited!");
+  const onSubmit = (data: object) => {
+    console.log(data);
+  };
+
+  const SignByGoogle = () => {
+    console.log("Google");
   };
 
   const pwd = watch("password");
@@ -26,7 +31,7 @@ const SignUp = () => {
           <img src={logo} className="sign-up__img" alt="img" />
           <h1 className="sign-up__title">Sign up</h1>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="sign-up__form" onSubmit={handleSubmit(onSubmit)}>
           <Controller
             control={control}
             name="email"
@@ -37,8 +42,15 @@ const SignUp = () => {
                 variant="outlined"
                 error={!!errors.email}
                 helperText={errors.email?.message?.toString()}
+                {...register("email", {
+                  pattern: {
+                    value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                    message: "Entered value does not match email format",
+                  },
+                })}
                 {...field}
                 type="text"
+                className="sign-up__input"
               />
             )}
           />
@@ -54,6 +66,7 @@ const SignUp = () => {
                 helperText={errors.password?.message?.toString()}
                 {...field}
                 type="text"
+                className="sign-up__input"
               />
             )}
           />
@@ -72,11 +85,23 @@ const SignUp = () => {
                 helperText={errors.password_repeat?.message?.toString()}
                 {...field}
                 type="text"
+                className="sign-up__input"
               />
             )}
           />
-          <button type="submit">Submit</button>
+          <button className="sign-up__btn" type="submit">
+            Submit
+          </button>
         </form>
+        <div className="sign-up__socials">
+          <button
+            className="sign-up__google-btn"
+            onClick={() => SignByGoogle()}
+          >
+            Login with Google{" "}
+            <img src={googleIcom} className="google_icon" alt="logo" />
+          </button>
+        </div>
       </div>
     </div>
   );

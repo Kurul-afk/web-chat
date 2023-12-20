@@ -3,13 +3,16 @@ import { BrowserRouter } from "react-router-dom";
 import Routers from "./Routers";
 import "./App.css";
 import Footer from "./components/Footer";
+import AuthContextProvider from "./context/AuthContext";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routers />
-      <Footer />
-    </BrowserRouter>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <Routers />
+        <Footer />
+      </BrowserRouter>
+    </AuthContextProvider>
   );
 };
 

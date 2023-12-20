@@ -17,3 +17,31 @@
 .sign-up__title {
   color: #8758ff;
 }
+.sign-up__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.sign-up__btn {
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.sign-up__socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+.sign-up__google-btn {
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+.google_icon {
+  width: 45px;
+  padding-left: 1rem;
+}
